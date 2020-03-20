@@ -1,4 +1,4 @@
-opencv-python==4.1.0.25
+opencv-python>=4.1
 numpy==1.16.4
 tensorflow-gpu==1.14.0
 Keras==2.2.4

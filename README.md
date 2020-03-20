@@ -46,7 +46,6 @@ To use the MuPeG framework clone this repository with git:
 
 ```
 git clone https://github.com/rubende/cnngait_tf
-
 ```
 
 ### Quick Start
