@@ -2,6 +2,9 @@
 
 Framework to generate augmented datasets with multiple subjects using existing datasets as input.
 
+![output_example](https://www.mdpi.com/sensors/sensors-20-01358/article_deploy/html/images/sensors-20-01358-g002.png)
+
+
 The paper describing this framework is available [here](https://www.mdpi.com/1424-8220/20/5/1358).
 
 <!-- TABLE OF CONTENTS -->
@@ -25,8 +28,6 @@ Gait recognition is being employed as an effective approach to identify people w
 
 ## Output examples
 Examples with TUM-GAID and CASIA-B datasets:
-![output_example](https://www.mdpi.com/sensors/sensors-20-01358/article_deploy/html/images/sensors-20-01358-g002.png)
-
 [![video output examples](https://j.gifs.com/JyR8vP.gif)](https://www.youtube.com/watch?v=JB_sLVr279g)
 
 ## Getting Started
