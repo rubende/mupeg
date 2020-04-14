@@ -80,10 +80,10 @@ if __name__ == "__main__":
 
 
     if inputtype == 'video':
-        MuPeG.MuPeGGenerator.generate_one_subject_from_videos(datasetdir, siltdir, idsdir, outputdir, background,
+        MuPeG.generate_one_subject_from_videos(datasetdir, siltdir, idsdir, outputdir, background,
                                                               videotypes, height, width, framerate)
     else:
-        MuPeG.MuPeGGenerator.generate_one_subject_from_images(datasetdir, siltdir, idsdir, outputdir, background,
+        MuPeG.generate_one_subject_from_images(datasetdir, siltdir, idsdir, outputdir, background,
                                                               videotypes, height, width, framerate)
 
 
