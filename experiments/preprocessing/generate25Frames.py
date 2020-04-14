@@ -20,6 +20,8 @@ n_frames = 25       # Number of frames to stack
 # Size of the images.
 im_height = 480
 im_width = 640
+
+clear_bb = True
     
 
 # The following functions can be used to convert a value to a type compatible
@@ -116,35 +118,52 @@ for file in paths_of:
 
 
         exist = True
+        index_exist = []
         for j in range(len(sub_detection_list)):
             if 1 not in sub_detection_list[j]:
                 exist = False
+            else:
+                index_exist.append(np.where(sub_detection_list[j] == 1)[0])
 
         if exist:
-            dif_bb = 30 - centroides_bb[round(n_frames/2)][0][1]
+            index_exist = np.asarray(index_exist)
+            index_exist = np.squeeze(index_exist)
+            dif_bb = 30 - centroides_bb[round(n_frames/2)][index_exist[k]][1]
             M = np.float32([[1, 0, dif_bb], [0, 1, 0]])
             of_resizes_0 =  np.zeros([60, 60, 50])
             for k in range(len(of_resizes)):
-                imagetrans = np.zeros([60, 80, 2])
-                imagetrans[int(bb_1[1]):int(bb_1[3]), int(bb_1[0]):int(bb_1[2]), :] = of_resizes[k][int(bb_1[1]):int(bb_1[3]), int(bb_1[0]):int(bb_1[2]), :]
-                imagetrans= cv2.warpAffine(imagetrans, M, (60, 60))
-                of_resizes_0[:,:,2*k:2*k+2] = imagetrans
+                if not clear_bb:
+                    imagetrans = cv2.warpAffine(of_resizes[k], M, (60, 60))
+                else:
+                    bb_1 = bb[k][index_exist[k]]
+                    imagetrans = np.zeros([60, 80, 2])
+                    imagetrans[int(bb_1[1]):int(bb_1[3]), int(bb_1[0]):int(bb_1[2]), :] = of_resizes[k][int(bb_1[1]):int(bb_1[3]), int(bb_1[0]):int(bb_1[2]), :]
+                    imagetrans= cv2.warpAffine(imagetrans, M, (60, 60))
+                    of_resizes_0[:,:,2*k:2*k+2] = imagetrans
 
         exist = True
+        index_exist = []
         for j in range(len(sub_detection_list)):
             if 2 not in sub_detection_list[j]:
                 exist = False
+            else:
+                index_exist.append(np.where(sub_detection_list[j] == 1)[0])
 
         if exist:
-            dif_bb = 30 - centroides_bb[round(n_frames/2)][1][1]
+            index_exist = np.asarray(index_exist)
+            index_exist = np.squeeze(index_exist)
+            dif_bb = 30 - centroides_bb[round(n_frames/2)][index_exist[k]][1]
             M = np.float32([[1, 0, dif_bb], [0, 1, 0]])
             of_resizes_1 = np.zeros([60, 60, 50])
             for k in range(len(of_resizes)):
-                bb_1 = bb[k][1]
-                imagetrans = np.zeros([60, 80, 2])
-                imagetrans[int(bb_1[1]):int(bb_1[3]), int(bb_1[0]):int(bb_1[2]), :] = of_resizes[k][int(bb_1[1]):int(bb_1[3]),int(bb_1[0]):int(bb_1[2]), :]
-                imagetrans= cv2.warpAffine(of_resizes[k], M, (60, 60))
-                of_resizes_1[:, :, 2 * k:2 * k + 2] = imagetrans
+                if not clear_bb:
+                    imagetrans = cv2.warpAffine(of_resizes[k], M, (60, 60))
+                else:
+                    bb_1 = bb[k][index_exist[k]]
+                    imagetrans = np.zeros([60, 80, 2])
+                    imagetrans[int(bb_1[1]):int(bb_1[3]), int(bb_1[0]):int(bb_1[2]), :] = of_resizes[k][int(bb_1[1]):int(bb_1[3]),int(bb_1[0]):int(bb_1[2]), :]
+                    imagetrans= cv2.warpAffine(of_resizes[k], M, (60, 60))
+                    of_resizes_1[:, :, 2 * k:2 * k + 2] = imagetrans
 
 
 
