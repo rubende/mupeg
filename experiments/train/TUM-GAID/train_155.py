@@ -7,9 +7,9 @@ from tensorflow import set_random_seed
 import math
 import importlib
 
-ModelTUM = importlib.import_module('cnngait_tf.experiments.Common.Model')
-createDatasetRecordTUM = importlib.import_module('cnngait_tf.experiments.Common.createDatasetRecord')
-callbacksTUM = importlib.import_module('cnngait_tf.experiments.Common.callbacks')
+ModelTUM = importlib.import_module('common.Model')
+createDatasetRecordTUM = importlib.import_module('common.createDatasetRecord')
+callbacksTUM = importlib.import_module('common.callbacks')
 
 
 model_150_path = "/outputs/model_150.h5"        # Model_150 path

@@ -5,8 +5,8 @@ import glob
 from scipy import stats
 import math
 import importlib
-createDatasetRecord = importlib.import_module('cnngait_tf.experiments.Common.createDatasetRecord')
-Model = importlib.import_module('cnngait_tf.experiments.Common.Model')
+createDatasetRecord = importlib.import_module('common.createDatasetRecord')
+Model = importlib.import_module('common.Model')
 
 
 PATH_ID_FILE = "tumgaidtestids.lst"                             # File with the IDs of the users that we are going to use

@@ -15,7 +15,7 @@ if __name__ == "__main__":
                         default="casiab", choices=['casiab', 'tumgaid', 'other'],
                         help="Dataset name. Used tho select metadata and default folder. "
                              "Try 'casiab', 'tumgaid' or 'other'.")
-    parser.add_argument('--inputtype', type=str, required=True,
+    parser.add_argument('--inputtype', type=str, required=False,
                         choices=['video', 'image'],
                         help="Input type."
                              "Try 'video' or 'image'.")

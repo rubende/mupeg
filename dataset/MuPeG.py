@@ -69,13 +69,13 @@ def generate_two_subjects_from_images(datasetdir, siltdir, idsdir, outputdir, vi
             offset_ids_3 = 0
 
             if perm_ids_1[i] == perm_ids_2[0]:
-                offset_ids_2 = offset_ids_2 + 1
+                offset_ids_2 = (offset_ids_2 + 1) % len(perm_ids_2)
 
             if perm_ids_1[i] == perm_ids_3[0]:
-                offset_ids_3 = offset_ids_3 + 1
+                offset_ids_3 = (offset_ids_3 + 1) % len(perm_ids_3)
 
-            if perm_ids_2[0 + offset_ids_2] == perm_ids_3[0 + offset_ids_3]:
-                offset_ids_2 = offset_ids_2 + 1
+            if perm_ids_2[offset_ids_2] == perm_ids_3[offset_ids_3]:
+                offset_ids_2 = (offset_ids_2 + 1) % len(perm_ids_2)
 
 
             matching = [s for s in folders if str(perm_ids_1[i]).zfill(3) in s]
@@ -84,13 +84,13 @@ def generate_two_subjects_from_images(datasetdir, siltdir, idsdir, outputdir, vi
                 [f.replace(datasetdir, "") for f in glob.glob(matching[0] + "/" + j + "/*.jpg",
                                                                 recursive=True)])
 
-            matching = [s for s in folders if str(perm_ids_2[0 + offset_ids_2]).zfill(3) in s]
+            matching = [s for s in folders if str(perm_ids_2[offset_ids_2]).zfill(3) in s]
 
             paths_subject_2 = sorted(
                 [f.replace(datasetdir, "") for f in glob.glob(matching[0] + "/" + videotypes_foreground[0] + "/*.jpg",
                                                               recursive=True)])
 
-            matching = [s for s in folders if str(perm_ids_3[0 + offset_ids_2]).zfill(3) in s]
+            matching = [s for s in folders if str(perm_ids_3[offset_ids_2]).zfill(3) in s]
 
             paths_subject_3 = sorted(
                 [f.replace(datasetdir, "") for f in glob.glob(matching[0] + "/" + videotypes_foreground[1] + "/*.jpg",

@@ -46,7 +46,7 @@ if __name__ == "__main__":
 
 
     if inputtype == 'video':
-        SilhouetteDetector.MuPeGGenerator.silhouettes_from_videos(datasetdir, outputdir)
+        SilhouetteDetector.silhouettes_from_videos(datasetdir, outputdir)
     else:
         SilhouetteDetector.silhouettes_from_images(datasetdir, outputdir)
 
