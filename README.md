@@ -64,7 +64,7 @@ git clone https://github.com/rubende/cnngait_tf
 
 ### Quick Start
 
-TODO
+Check our [Google Colab example](https://colab.research.google.com/drive/1N22415RMf67Pile5keYfqGZxGrYK0GZa).
 
 ### Usage
 
