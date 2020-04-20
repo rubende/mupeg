@@ -95,14 +95,29 @@ def generate_two_subjects_from_images(datasetdir, siltdir, idsdir, outputdir, vi
             paths_subject_3 = sorted(
                 [f.replace(datasetdir, "") for f in glob.glob(matching[0] + "/" + videotypes_foreground[1] + "/*.jpg",
                                                               recursive=True)])
+            # TODO: Adapt this part to the other functions
+            path = os.path.normpath(paths_subject_1[0])
+            path1 = path.split(os.sep)
+
+            path = os.path.normpath(paths_subject_2[0])
+            path2 = path.split(os.sep)
+
+            path = os.path.normpath(paths_subject_3[0])
+            path3 = path.split(os.sep)
 
             out2 = cv2.VideoWriter(
-                outputdir + paths_subject_1[0][:4] + paths_subject_1[0][5:8] + "_" + paths_subject_2[0][:4] +
-                paths_subject_2[0][5:8] + ".mp4", cv2.VideoWriter_fourcc(*'mp4v'), framerate, (width, height))
+                outputdir + path1[0] + "-" + path1[1] + "_" + path2[0] + "-" + path2[1] + ".mp4",
+                cv2.VideoWriter_fourcc(*'mp4v'), framerate, (width, height))
+
+            print(outputdir + path1[0] + "-" + path1[1] + "_" + path2[0] + "-" + path2[1] + ".mp4")
 
             out3 = cv2.VideoWriter(
-                outputdir + paths_subject_1[0][:4] + paths_subject_1[0][5:8] + "_" + paths_subject_3[0][:4] +
-                paths_subject_3[0][5:8] + ".mp4", cv2.VideoWriter_fourcc(*'mp4v'), framerate, (width, height))
+                outputdir + path1[0] + "-" + path1[1] + "_" + path3[0] + "-" + path3[1] + ".mp4",
+                cv2.VideoWriter_fourcc(*'mp4v'), framerate, (width, height))
+
+            print(outputdir + path1[0] + "-" + path1[1] + "_" + path3[0] + "-" + path3[1] + ".mp4")
+
+            ##############################################
 
             for k in range(len(paths_subject_1)):
 
