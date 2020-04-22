@@ -21,8 +21,7 @@ PATH_TO_RESEARCH = '/tensorflow/models/research/'  # Path to /tensorflow/models/
 #    raise ImportError('Please upgrade your tensorflow installation to v1.5.0 or newer!')
 
 # Needed to show segmentation colormap labels
-sys.path.append(PATH_TO_RESEARCH)
-from deeplab.utils import get_dataset_colormap
+
 
 ## Select and download models
 
@@ -114,10 +113,14 @@ LABEL_NAMES = np.asarray([
 ])
 
 FULL_LABEL_MAP = np.arange(len(LABEL_NAMES)).reshape(len(LABEL_NAMES), 1)
-FULL_COLOR_MAP = get_dataset_colormap.label_to_color_image(FULL_LABEL_MAP)
 
 
-def silhouettes_from_images(input_path, output_path):
+
+def silhouettes_from_images(input_path, output_path, deeplab_path):
+
+    sys.path.append(deeplab_path)
+    from deeplab.utils import get_dataset_colormap
+    FULL_COLOR_MAP = get_dataset_colormap.label_to_color_image(FULL_LABEL_MAP)
 
     input_path_images = [f for f in glob.glob(input_path + "/**/*.jpg", recursive=True)]
 
@@ -135,7 +138,11 @@ def silhouettes_from_images(input_path, output_path):
         cv2.imwrite(output_path + basename, open_cv_image)
 
 
-def silhouettes_from_videos(input_path, output_path):
+def silhouettes_from_videos(input_path, output_path, deeplab_path):
+
+    sys.path.append(deeplab_path)
+    from deeplab.utils import get_dataset_colormap
+    FULL_COLOR_MAP = get_dataset_colormap.label_to_color_image(FULL_LABEL_MAP)
 
     input_path_videos = [f for f in glob.glob(input_path + "*.avi",
                                              recursive=True)]

@@ -23,6 +23,8 @@ if __name__ == "__main__":
                         help='Full path to dataset directory')
     parser.add_argument('--outputdir', type=str, required=False,
                         help='Full path to output directory')
+    parser.add_argument('--deeplabpath', type=str, required=False,
+                        help='Full path to deeplab directory', default="/tensorflow/models/research/")
 
     script_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -31,7 +33,7 @@ if __name__ == "__main__":
     inputtype = args.inputtype
     datasetdir = args.datasetdir
     outputdir = args.outputdir
-
+    deeplabpath = args.deeplabpath
 
     if dataset == 'casiab':
         datasetdir = script_path + "/casiab/" if datasetdir is None else datasetdir
@@ -46,9 +48,9 @@ if __name__ == "__main__":
 
 
     if inputtype == 'video':
-        SilhouetteDetector.silhouettes_from_videos(datasetdir, outputdir)
+        SilhouetteDetector.silhouettes_from_videos(datasetdir, outputdir, deeplabpath)
     else:
-        SilhouetteDetector.silhouettes_from_images(datasetdir, outputdir)
+        SilhouetteDetector.silhouettes_from_images(datasetdir, outputdir, deeplabpath)
 
 
 
