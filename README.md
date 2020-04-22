@@ -40,12 +40,12 @@ recommended experiments that are necessary to perform. Moreover, we release the
 first experimental results using datasets with multiple subjects. In our case, 
 we use an augmented version of [TUM-GAID](https://www.ei.tum.de/mmk/verschiedenes/tum-gaid-database/) 
 and [CASIA-B](http://www.cbsr.ia.ac.cn/english/Gait%20Databases.asp) 
-datasets obtained with our framework. In these augmented datasets the 
+datasets obtained with our framework. **In these augmented datasets the 
 obtained accuracies are 54.8% and 42.3% whereas in the original datasets 
 (single subject), the same model achieved 99.7% and 98.0% for TUM-GAID and CASIA-B, 
-respectively. The performance drop shows clearly that the difficulty of datasets 
+respectively**. The performance drop shows clearly that **the difficulty of datasets 
 with multiple subjects in the scene is much higher than the ones reported in 
-the literature for a single subject. Thus, our proposed framework is able to 
+the literature for a single subject**. Thus, our proposed framework is able to 
 generate useful datasets with multiple subjects which are more similar to real 
 life situations.
 
