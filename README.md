@@ -1,4 +1,5 @@
 # MuPeG: The Multiple Person Gait framework
+[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1N22415RMf67Pile5keYfqGZxGrYK0GZa)
 
 Framework to generate augmented datasets with multiple subjects using existing datasets as input.
 
@@ -71,7 +72,7 @@ MuPeG depends on the following libraries:
 
 - OpenCV
 - NumPy
-- Tensorflow (we recommend tensorflow-gpu)
+- Tensorflow 1.x (we recommend tensorflow-gpu)
 - Tensorflow Object Detection API
 - Keras
 - SciPy
@@ -97,7 +98,7 @@ git clone https://github.com/rubende/cnngait_tf
 
 ### Quick Start
 
-Check our [Google Colab example](https://colab.research.google.com/drive/1N22415RMf67Pile5keYfqGZxGrYK0GZa).
+Check our [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1N22415RMf67Pile5keYfqGZxGrYK0GZa).
 
 ### Usage
 
